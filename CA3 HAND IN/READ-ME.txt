@@ -1,0 +1,99 @@
+NISHIL'S CA3 COVID ALARM CLOCK README
+
+
+NOTE TO TESTER
+**FLASK PROJECT AS A WHOLE MADE IN PYCHARM IS FULLY FUNCITONAL ON MY PC 
+  IF THERE ARE ANY ISSUES GETTING IT TO RUN PLEASE LET ME KNOW**
+	
+
+ZIP FILE PROVIDES:
+	app.py - Main Flask Application to be run
+	apicalls.py - Module i've written to access API's from
+	alarm.py - Module i've written with the Alarm Class to handle alarm instances and methods.
+	config.json - Config file which contains data that can be changed by deployer to change how the code works
+	template.html - template used to display the page to the browser (provided by workshop 7)
+
+	DOCUMENTATION PROVIDED (Within ZIP File)
+	apicalls_doc.html - Documentation for APICALLS.py file, can be opened in chrome
+	alarm_doc.html - Documentation for ALARM.py file, can be opened in chrome
+	app_doc.txt - Documentation for the main flask app file, can be opened by notepad
+
+
+PIP INSTALL REQUIREMENTS(Functions from the following modules have been used:)
+	uk_covid19 
+	pyttsx3
+	requests
+	flask
+
+
+LOGGING - sys.log file will be created by the program and will hold custom info logs about actions
+	  happenning within the program as well has HTML requests from the site. All other services 
+	  within the program will only log errors to keep the log file less cluttered. 	
+
+
+USAGE OF config.json
+	the config file allows the user/deployer to change some aspects of the alarm, 
+	it has 3 sections that can be adapted
+	
+	notif_data - holds config data about notifications aspect of the program
+	'base_url' - is the first section of the url for accessing the API
+	'key' - the key used to access the API
+	'country' - the country to add to the query
+	'quantity' - number of notifications to include on the page (set to 2, can be any integer above of including 0)
+		     this value excludes any data from extras. Deleted notifications will be replaced with a different
+    		     article
+	'depth' - can be 1 or 0, 0 means that in an announcement with the news, only the title is read, 1 means that
+		  the news and a brief overview will also be spoken.
+	'extras' - can be 1 or 0, 0 represents nothing, 1 means that covid and weather data are wanted on the notification panel
+		   as well as notification data (if 1 is selected, these 2 entries will not be able to be deleted)	
+	
+
+	weather_data - holds config data about the weather aspect of the program
+	'base_url' - is the first section of the url for accessing the API
+	'key' - the key used to access the API
+	'city' - the city in the UK that weather data is wanted for
+	'depth' - can be 1 or 0, 1 means that in an announcement with the weather, more data will be outlined than 
+		  when the depth is set to 0. The same is said for displaying covid data in a notification
+
+	
+	covid_data - holds config data about the covid-api aspect of the program
+	'area_type' - the type of area that the statistics are about - set to 'nation'
+	'area_name' - country name for the area that statistics are wanted for - set to 'England'
+	'depth' - can be 1 or 0, 1 means that in an announcement, more data will be outlined than 
+		  when the depth is set to 0. The same is said for displaying covid data in a notification
+
+
+LICENSE
+
+MIT License
+Copyright (c) 2020 Nishil Amin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+
+
+
+
+
+
+
+
+
+
